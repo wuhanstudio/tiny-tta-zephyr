@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <zephyr/kernel.h>
 #include "main_functions.h"
 
 /* This is the default main used on systems that have the standard C entry
