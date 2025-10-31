@@ -13,11 +13,12 @@ Step 1: Install Zephyr
 ```
 $ pip install west
 $ west init ~/zephyrproject
+
 $ cd ~/zephyrproject
 $ west update
+
 $ west zephyr-export
-$ pip install -r ~/zephyrproject/zephyr/scripts/requirements.txt
-$ echo "source ~/zephyrproject/zephyr/zephyr-env.sh" >> ~/.bashrc
+$ west packages pip --install
 ```
 
 Step 2: Install Zephyr-SDK
@@ -33,6 +34,7 @@ Step 3: Compile
 $ git clone https://github.com/wuhanstudio/tiny-tta-zephyr/
 $ cd tiny-tta-zephyr
 
+$ source ~/zephyrproject/zephyr/zephyr-env.sh
 $ west build -b stm32f103_mini -p
 $ west flash
 ```
