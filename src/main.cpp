@@ -16,9 +16,6 @@
 
 #include "main_functions.h"
 
-/* Increase number of loops to see full period of the sine curve */
-#define NUM_LOOPS 10
-
 /* This is the default main used on systems that have the standard C entry
  * point. Other devices (for example FreeRTOS or ESP32) that have different
  * requirements for entry code (like an app_main function) should specialize
@@ -27,9 +24,10 @@
 int main(int argc, char *argv[])
 {
 	setup();
-	/* Note: Modified from original while(true) to accommodate CI */
-	for (int i = 0; i < NUM_LOOPS; i++) {
+	while (true) {
 		loop();
-	}
+    	// trigger one inference every 500ms
+    	k_msleep(500);
+  	}
 	return 0;
 }
